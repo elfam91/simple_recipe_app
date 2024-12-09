@@ -32,11 +32,40 @@ class HomeScreen extends StatelessWidget {
                         height: 250,),
                       ),
                     Positioned(
+                      left: 0,
+                        right: 0,
+                        bottom: 0,
                         child: Container(
+                          padding: EdgeInsets.symmetric(
+                            vertical: 5,
+                              horizontal: 15,
+                          ),
                           decoration: BoxDecoration(
                             color: Colors.black54,
+                          ), 
+                          child: Text(recipes[index].title,
+                            style: TextStyle(
+                              fontSize: 26,
+                              color: Colors.white
+                            ),
                           ),
                         )
+                    ),
+                    Positioned(
+                      right: 0,
+                        child: Container(
+                          color: Colors.white,
+                          height: 50,
+                          width: 100,
+                          child: Center(
+                            child: Text('${recipes[index].duration} min'),
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                     ),
                   ],
                 ),
