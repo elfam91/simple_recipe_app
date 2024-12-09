@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_recipe_app/dummy_data.dart';
+import 'package:simple_recipe_app/screens/detail_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -12,7 +13,20 @@ class HomeScreen extends StatelessWidget {
           itemCount: recipes.length,
           itemBuilder: (context, index){
             return InkWell(
-              onTap: (){},
+              onTap: (){
+                  Navigator.push(context,
+                  MaterialPageRoute(
+                    builder: (context)=> DetailScreen(
+                      title: recipes[index].title,
+                      imgUrl: recipes[index].imageUrl,
+                      ingredients: recipes[index].ingredients,
+                      steps: recipes[index].steps,
+                      duration: recipes[index].duration,
+            ),
+            ),
+            );
+      },
+
               child: Card(
                 margin: EdgeInsets.all(10),
                 shape: RoundedRectangleBorder(
@@ -54,6 +68,12 @@ class HomeScreen extends StatelessWidget {
                     Positioned(
                       right: 0,
                         child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(15),
+                              bottomLeft: Radius.circular(15),
+                            )
+                          ),
                           color: Colors.white,
                           height: 50,
                           width: 100,
