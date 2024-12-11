@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_splash/flutter_animated_splash.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:simple_recipe_app/screens/home_screen.dart';
 
 void main() {
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: AnimatedSplashScreen(
+      home: AnimatedSplash(
         splash: 'assets/recipe.jpg', // Make sure the image is in the assets folder and added in pubspec.yaml
         splashIconSize: 300,  // Controls the size of the splash icon
         curve: Curves.easeInBack,  // Controls the animation curve
