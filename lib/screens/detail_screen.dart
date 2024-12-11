@@ -11,11 +11,19 @@ class DetailScreen extends StatelessWidget {
   DetailScreen({this.title, this.imgUrl, this.ingredients, this.duration, this.steps})
 
   Widget _buildContainer(Widget child){
+
     return Container(
+      padding: EdgeInsets.all(10),
+      margin: EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
-        color: Colors.black
+        color: Colors.black54,
+        border: Border.all(
+          color: Colors.grey,
+        ),
       ),
+      width: double.infinity,
+      child: child,
     );
   }
 
@@ -52,7 +60,35 @@ class DetailScreen extends StatelessWidget {
               ),
             ];
           }
-          body: Container ()
+          body: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.all(10),
+              child: Text('Ingredients', style: TextStyle(fontSize: 20, color: Colors.white),),
+      ),
+      _buildContainer(
+      Text(ingredients, style: TextStyle(
+        fontSize: 16,
+        color: Colors.white,
+    ),
+    ),
+      ),
+    Padding(
+    padding: EdgeInsets.all(10),
+    child: Text('Steps', style: TextStyle(fontSize: 20, color: Colors.white),),
+    ),
+    Expanded(child: _buildContainer(
+    Text(
+    steps,
+    style: TextStyle(
+    fontSize: 20,
+    color: Colors.white
+    ),
+    ),
+    ),),
+
+          ],
+      ),
       ),
     );
   }
