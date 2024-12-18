@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animated_splash/flutter_animated_splash.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:simple_recipe_app/screens/home_screen.dart';
+
+import 'package:simple_recipe_app/pages/category_page.dart';
+
+import 'package:simple_recipe_app/pages/home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,17 +12,65 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: AnimatedSplash(
-        splash: 'assets/recipe.jpg', // Make sure the image is in the assets folder and added in pubspec.yaml
-        splashIconSize: 300,  // Controls the size of the splash icon
-        curve: Curves.easeInBack,  // Controls the animation curve
-        duration: 2000,  // Duration of the splash screen
-        backgroundColor: Colors.black,  // Corrected the typo here
-        animationDuration: Duration(milliseconds: 1500),  // Duration of the animation
-        nextScreen: HomeScreen(),  // The screen that comes after the splash
+      title: 'Food Recipe App',
+      theme: ThemeData(primaryColor: Color(0xFF5ea17f)),
+      home: Home(),
+    );
+  }
+}
+
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int selectedIndex = 0;
+
+  void onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
+
+  List<Widget> pages = <Widget>[
+    HomePage(),
+    CategoryPage(),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Color(0xFFfafafa),
+        body: pages[selectedIndex],
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.white,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_outlined),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.category_outlined),
+              label: 'Category',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.bookmark_outlined),
+              label: 'Saved',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_outlined),
+              label: 'Profile',
+            ),
+          ],
+          unselectedItemColor: Theme.of(context).primaryColor,
+          selectedItemColor: Theme.of(context).primaryColor,
+          iconSize: 30,
+          currentIndex: selectedIndex,
+          onTap: onItemTapped,
+        ),
       ),
-      debugShowCheckedModeBanner: false,  // Disable the debug banner
-      theme: ThemeData.dark(),  // Dark theme for the app
     );
   }
 }
