@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:simple_recipe_app/widgets/meal_grid_tyle.dart';
 
 class CategoryPage extends StatelessWidget {

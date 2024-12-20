@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:simple_recipe_app/pages/category_page.dart';
-
 import 'package:simple_recipe_app/pages/home_page.dart';
 
 void main() {
