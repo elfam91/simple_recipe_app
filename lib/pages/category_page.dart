@@ -27,33 +27,27 @@ class CategoryPage extends StatelessWidget {
             childAspectRatio: ((MediaQuery.of(context).size.width / 2) /250),
             children: [
               MealGridTile(
-                imgSrc:
-                'https://www.onceuponachef.com/images/2009/08/pancakes-01-1123x1536.jpg',
+                imgSrc: 'assets/breakfast.jpg',
                 title: 'Breakfast',
               ),
               MealGridTile(
-                imgSrc:
-                'https://www.onceuponachef.com/images/2009/08/pancakes-01-1123x1536.jpg',
+                imgSrc: 'assets/lunch.jpg',
                 title: 'Lunch',
               ),
               MealGridTile(
-                imgSrc:
-                'https://www.onceuponachef.com/images/2009/08/pancakes-01-1123x1536.jpg',
+                imgSrc: 'assets/dessert.jpeg',
                 title: 'Dessert',
               ),
               MealGridTile(
-                imgSrc:
-                'https://www.onceuponachef.com/images/2009/08/pancakes-01-1123x1536.jpg',
+                imgSrc: 'assets/snack.jpg',
                 title: 'Snack',
               ),
               MealGridTile(
-                imgSrc:
-                'https://www.onceuponachef.com/images/2009/08/pancakes-01-1123x1536.jpg',
+                imgSrc: 'assets/beverage.jpg',
                 title: 'Beverage',
               ),
               MealGridTile(
-                imgSrc:
-                'https://www.onceuponachef.com/images/2009/08/pancakes-01-1123x1536.jpg',
+                imgSrc: 'assets/dinner.jpeg',
                 title: 'Dinner',
               ),
             ],
