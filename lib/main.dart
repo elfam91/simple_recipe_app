@@ -53,14 +53,6 @@ class _HomeState extends State<Home> {
               icon: Icon(Icons.category_outlined),
               label: 'Category',
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.bookmark_outlined),
-              label: 'Saved',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person_outlined),
-              label: 'Profile',
-            ),
           ],
           unselectedItemColor: Theme.of(context).primaryColor,
           selectedItemColor: Theme.of(context).primaryColor,
