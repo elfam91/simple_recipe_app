@@ -1,12 +1,28 @@
 import 'package:flutter/material.dart';
-
 import 'package:simple_recipe_app/widgets/meal_type_card.dart';
-
 import 'package:simple_recipe_app/widgets/recipe_card.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  TextEditingController _searchController = TextEditingController();
+  String _searchQuery = '';
+
+
+  final List<String> _recipes = [
+    'Ice Cream', 'Pancakes', 'Taco', 'Coffee', 'Spaghetti', 'Salad',
+  ];
+
   @override
   Widget build(BuildContext context) {
+
+    List<String> filteredRecipes = _recipes
+        .where((recipe) => recipe.toLowerCase().contains(_searchQuery.toLowerCase()))
+        .toList();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -41,47 +57,34 @@ class HomePage extends StatelessWidget {
             ],
           ),
         ),
+        // Search bar
         Container(
           padding: EdgeInsets.all(20),
-          child: Row(
-            children: [
-              Expanded(
-                child: TextField(
-                  decoration:
-                  InputDecoration(
-                    fillColor: Colors.white,
-                    filled: true,
-                    prefixIcon: Icon(
-                      Icons.search,
-                      color: Colors.black,
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.grey.shade200,
-                      ),
-                      borderRadius: BorderRadius.zero,
-                    ),
-                    hintText: 'Search recipe here...',
-                  ),
-                ),
+          child: TextField(
+            controller: _searchController,
+            onChanged: (query) {
+              setState(() {
+                _searchQuery = query;
+              });
+            },
+            decoration: InputDecoration(
+              fillColor: Colors.white,
+              filled: true,
+              prefixIcon: Icon(
+                Icons.search,
+                color: Colors.black,
               ),
-              SizedBox(width: 10),
-              Container(
-                padding: EdgeInsets.all(16.5),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      color: Colors.grey.shade200,
-                    )
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.grey.shade200,
                 ),
-                child: Icon(
-                  Icons.tune,
-                  color: Theme.of(context).primaryColor,
-                ),
+                borderRadius: BorderRadius.zero,
               ),
-            ],
+              hintText: 'Search recipe here...',
+            ),
           ),
         ),
+        // Meal type cards
         Container(
           height: 110,
           child: ListView(
@@ -110,42 +113,24 @@ class HomePage extends StatelessWidget {
           padding: EdgeInsets.fromLTRB(20, 20, 0, 10),
           child: Text(
             'Popular Recipes',
-            style: TextStyle(fontWeight: FontWeight.w700, fontSize: 22,
-            ),
+            style: TextStyle(fontWeight: FontWeight.w700, fontSize: 22),
           ),
         ),
-        Expanded(child: ListView(
-          scrollDirection: Axis.horizontal,
-          children: [
-            RecipeCard(
-              imgSrc: 'assets/ice_cream.jpg',
-              title: 'Ice Cream',
-              prepTime: '15 M',
-              cookTime: '45 M',
-            ),
-            RecipeCard(
-              imgSrc: 'assets/breakfast.jpg',
-              title: 'Pancakes',
-              prepTime: '15 M',
-              cookTime: '15 M',
-            ),
-            RecipeCard(
-              imgSrc: 'assets/taco.jpg',
-              title: 'Taco',
-              prepTime: '30 M',
-              cookTime: '45 M',
-            ),
-            RecipeCard(
-              imgSrc: 'assets/coffee.jpg',
-              title: 'Coffee',
-              prepTime: '5 M',
-              cookTime: '5 M',
-            ),
-          ],
+        // List of filtered recipes based on search
+        Expanded(
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: filteredRecipes.map((recipe) {
+              return RecipeCard(
+                imgSrc: 'assets/recipe.jpg',
+                title: recipe,
+                prepTime: '15 M',
+                cookTime: '30 M',
+              );
+            }).toList(),
+          ),
         ),
-        ),
-        SizedBox(height: 10,
-        ),
+        SizedBox(height: 10),
       ],
     );
   }
