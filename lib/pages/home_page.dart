@@ -12,13 +12,18 @@ class _HomePageState extends State<HomePage> {
   TextEditingController _searchController = TextEditingController();
   String _searchQuery = '';
 
-  final List<String> _recipes = [
-    'Ice Cream', 'Pancakes', 'Taco', 'Coffee', 'Spaghetti', 'Salad',
-  ];
+  final Map<String, String> _recipes = {
+    'Ice Cream': 'assets/ice_cream.jpg',
+    'Pancakes': 'assets/breakfast.jpg',
+    'Taco': 'assets/taco.jpg',
+    'Coffee': 'assets/coffee.jpg',
+    'Spaghetti': 'assets/spaghetti.jpg',
+    'Salad': 'assets/salad.jpg',
+  };
 
   @override
   Widget build(BuildContext context) {
-    List<String> filteredRecipes = _recipes
+    List<String> filteredRecipes = _recipes.keys
         .where((recipe) => recipe.toLowerCase().contains(_searchQuery.toLowerCase()))
         .toList();
 
@@ -26,11 +31,9 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('Food Recipe'),
         actions: [
-          // Add a button to navigate to the Add Recipe page
           IconButton(
             icon: Icon(Icons.add),
             onPressed: () {
-              // Navigate to the AddRecipePage
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => AddRecipePage()),
@@ -39,11 +42,10 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: SingleChildScrollView( // Wrap in ScrollView for responsive layout
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Welcome and greeting section
             Padding(
               padding: EdgeInsets.fromLTRB(20, 30, 0, 10),
               child: Text(
@@ -152,7 +154,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
 
-            // Recipes Grid Layout (instead of horizontal list)
+            // Recipes Grid Layout
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: GridView.builder(
@@ -166,9 +168,10 @@ class _HomePageState extends State<HomePage> {
                 ),
                 itemCount: filteredRecipes.length,
                 itemBuilder: (context, index) {
+                  String recipe = filteredRecipes[index];
                   return RecipeCard(
-                    imgSrc: 'assets/recipe.jpg',
-                    title: filteredRecipes[index],
+                    imgSrc: _recipes[recipe]!,
+                    title: recipe,
                     prepTime: '15 M',
                     cookTime: '30 M',
                   );
@@ -181,7 +184,6 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Navigate to the AddRecipePage
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => AddRecipePage()),
@@ -193,5 +195,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
 
 
