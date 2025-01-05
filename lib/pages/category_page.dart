@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_recipe_app/widgets/meal_grid_tyle.dart';
+import 'package:simple_recipe_app/recipes/lunch_recipe_page.dart';
 
 class CategoryPage extends StatelessWidget {
   @override
@@ -30,10 +31,21 @@ class CategoryPage extends StatelessWidget {
                 imgSrc: 'assets/breakfast.jpg',
                 title: 'Breakfast',
               ),
-              MealGridTile(
-                imgSrc: 'assets/lunch.jpg',
-                title: 'Lunch',
-              ),
+          GestureDetector(
+            onTap: () {
+              // Navigate to Lunch Recipes page when tapped
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LunchRecipePage(),
+                ),
+              );
+            },
+            child: MealGridTile(
+            imgSrc: 'assets/lunch.jpg',
+            title: 'Lunch',
+          ),
+        ),
               MealGridTile(
                 imgSrc: 'assets/dessert.jpeg',
                 title: 'Dessert',
