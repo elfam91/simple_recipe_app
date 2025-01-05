@@ -18,9 +18,10 @@ class _HomePageState extends State<HomePage> {
   TextEditingController _searchController = TextEditingController();
   String _searchQuery = '';
 
+  // Updated recipes map: Pancakes now belongs to the 'Breakfast' category
   final Map<String, String> _recipes = {
     'Ice Cream': 'assets/ice_cream.jpg',
-    'Pancakes': 'assets/breakfast.jpg',
+    'Pancakes': 'assets/breakfast.jpg',  // Pancakes is now part of Breakfast
     'Taco': 'assets/taco.jpg',
     'Coffee': 'assets/coffee.jpg',
     'Spaghetti': 'assets/spaghetti.jpg',
@@ -125,6 +126,7 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(height: 20),
 
+            // Meal type cards
             Container(
               height: 110,
               child: ListView(
@@ -210,7 +212,7 @@ class _HomePageState extends State<HomePage> {
                       );
                     },
                     child: MealTypeCard(
-                      title: 'Breakfast',
+                      title: 'Snack',
                       icon: Icons.fastfood,
                     ),
                   ),
@@ -249,7 +251,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => DessertRecipePage(),
+                            builder: (context) => BreakfastRecipePage(),  // Changed to Breakfast
                           ),
                         );
                       } else if (recipe == 'Taco' || recipe == 'Spaghetti') {
@@ -270,7 +272,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => LunchRecipePage(),  // Navigate to LunchPage now
+                            builder: (context) => LunchRecipePage(),
                           ),
                         );
                       }
@@ -302,8 +304,5 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-
-
 
 
