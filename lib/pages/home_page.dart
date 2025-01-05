@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:simple_recipe_app/recipes/snack_recipe_page.dart';
 import 'package:simple_recipe_app/widgets/meal_type_card.dart';
 import 'package:simple_recipe_app/widgets/recipe_card.dart';
 import 'add_recipe_page.dart'; // Import the new page
+import 'package:simple_recipe_app/recipes/dessert_recipe_page.dart';
+import 'package:simple_recipe_app/recipes/dinner_recipe_page.dart';
+import 'package:simple_recipe_app/recipes/beverage_recipe_page.dart';
+import 'package:simple_recipe_app/recipes/breakfast_recipe_page.dart';
+import 'package:simple_recipe_app/recipes/lunch_recipe_page.dart'; // Make sure this is imported
 
 class HomePage extends StatefulWidget {
   @override
@@ -18,7 +24,7 @@ class _HomePageState extends State<HomePage> {
     'Taco': 'assets/taco.jpg',
     'Coffee': 'assets/coffee.jpg',
     'Spaghetti': 'assets/spaghetti.jpg',
-    'Salad': 'assets/salad.jpg',
+    'Salad': 'assets/salad.jpg',  // Salad is now part of Lunch
   };
 
   @override
@@ -119,27 +125,94 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(height: 20),
 
-            // Meal type cards
             Container(
               height: 110,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  MealTypeCard(
-                    title: 'Breakfast',
-                    icon: Icons.breakfast_dining,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BreakfastRecipePage(),
+                        ),
+                      );
+                    },
+                    child: MealTypeCard(
+                      title: 'Breakfast',
+                      icon: Icons.breakfast_dining,
+                    ),
                   ),
-                  MealTypeCard(
-                    title: 'Lunch',
-                    icon: Icons.lunch_dining,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LunchRecipePage(),
+                        ),
+                      );
+                    },
+                    child: MealTypeCard(
+                      title: 'Lunch',
+                      icon: Icons.lunch_dining,
+                    ),
                   ),
-                  MealTypeCard(
-                    title: 'Dessert',
-                    icon: Icons.cake,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DessertRecipePage(),
+                        ),
+                      );
+                    },
+                    child: MealTypeCard(
+                      title: 'Dessert',
+                      icon: Icons.cake,
+                    ),
                   ),
-                  MealTypeCard(
-                    title: 'Dinner',
-                    icon: Icons.dinner_dining,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DinnerRecipePage(),
+                        ),
+                      );
+                    },
+                    child: MealTypeCard(
+                      title: 'Dinner',
+                      icon: Icons.dinner_dining,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BeverageRecipePage(),
+                        ),
+                      );
+                    },
+                    child: MealTypeCard(
+                      title: 'Beverage',
+                      icon: Icons.coffee,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SnackRecipePage(),
+                        ),
+                      );
+                    },
+                    child: MealTypeCard(
+                      title: 'Breakfast',
+                      icon: Icons.fastfood,
+                    ),
                   ),
                 ],
               ),
@@ -158,8 +231,8 @@ class _HomePageState extends State<HomePage> {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: GridView.builder(
-                shrinkWrap: true, // Prevent it from expanding to full height
-                physics: NeverScrollableScrollPhysics(), // Disable grid scrolling
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   mainAxisSpacing: 20,
@@ -169,11 +242,45 @@ class _HomePageState extends State<HomePage> {
                 itemCount: filteredRecipes.length,
                 itemBuilder: (context, index) {
                   String recipe = filteredRecipes[index];
-                  return RecipeCard(
-                    imgSrc: _recipes[recipe]!,
-                    title: recipe,
-                    prepTime: '15 M',
-                    cookTime: '30 M',
+                  return GestureDetector(
+                    onTap: () {
+                      // Navigate to the corresponding category page
+                      if (recipe == 'Ice Cream' || recipe == 'Pancakes') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DessertRecipePage(),
+                          ),
+                        );
+                      } else if (recipe == 'Taco' || recipe == 'Spaghetti') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DinnerRecipePage(),
+                          ),
+                        );
+                      } else if (recipe == 'Coffee') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => BeverageRecipePage(),
+                          ),
+                        );
+                      } else if (recipe == 'Salad') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LunchRecipePage(),  // Navigate to LunchPage now
+                          ),
+                        );
+                      }
+                    },
+                    child: RecipeCard(
+                      imgSrc: _recipes[recipe]!,
+                      title: recipe,
+                      prepTime: '15 M',
+                      cookTime: '30 M',
+                    ),
                   );
                 },
               ),
@@ -195,6 +302,8 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
 
 
 
