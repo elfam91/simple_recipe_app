@@ -11,46 +11,13 @@ class BeverageRecipePage extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: ListView(
           children: [
-            // First Recipe: White Russian
+            // First Recipe: Caffe Latte
             ListTile(
               leading: Container(
                 width: 100, // Set the desired width
                 height: 100, // Set the desired height
                 child: Image.asset(
-                  'assets/beverage.jpg', // Image for the recipe
-                  fit: BoxFit.cover, // This ensures the image fills the container
-                ),
-              ),
-              title: Padding(
-                padding: EdgeInsets.only(left: 16), // Add space between image and title
-                child: Text('White Russian'),
-              ),
-              subtitle: Padding(
-                padding: EdgeInsets.only(left: 16), // Space between the title and ingredients
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Ingredients: Vodka, Coffee Liqueur, Cream'),
-                    SizedBox(height: 8),
-                    Text('Cooking Instructions: Mix ingredients in a shaker with ice. Strain into a glass.'),
-                    SizedBox(height: 8),
-                    Text('Prep time: 5 minutes'),
-                    SizedBox(height: 8),
-                    Text('Cook time: None'),
-                    SizedBox(height: 8),
-                    Text('Stars: ⭐⭐⭐⭐'),
-                  ],
-                ),
-              ),
-            ),
-
-            // Second Recipe: Caffe Latte
-            ListTile(
-              leading: Container(
-                width: 100, // Set the desired width
-                height: 100, // Set the desired height
-                child: Image.asset(
-                  'assets/beverage.jpg', // Image for the recipe
+                  'assets/coffee.jpg', // Image for the recipe
                   fit: BoxFit.cover, // This ensures the image fills the container
                 ),
               ),
@@ -71,7 +38,7 @@ class BeverageRecipePage extends StatelessWidget {
                     SizedBox(height: 8),
                     Text('Cook time: 2 minutes'),
                     SizedBox(height: 8),
-                    Text('Stars: ⭐⭐⭐⭐⭐'),
+                    Text('Stars: ⭐⭐⭐'),
                   ],
                 ),
               ),
@@ -83,7 +50,7 @@ class BeverageRecipePage extends StatelessWidget {
                 width: 100, // Set the desired width
                 height: 100, // Set the desired height
                 child: Image.asset(
-                  'assets/beverage.jpg', // Image for the recipe
+                  'assets/coffee.jpg', // Image for the recipe
                   fit: BoxFit.cover, // This ensures the image fills the container
                 ),
               ),
@@ -102,40 +69,7 @@ class BeverageRecipePage extends StatelessWidget {
                     SizedBox(height: 8),
                     Text('Prep time: 5 minutes'),
                     SizedBox(height: 8),
-                    Text('Cook time: None'),
-                    SizedBox(height: 8),
-                    Text('Stars: ⭐⭐⭐⭐'),
-                  ],
-                ),
-              ),
-            ),
-
-            // Fourth Recipe: Mojito
-            ListTile(
-              leading: Container(
-                width: 100, // Set the desired width
-                height: 100, // Set the desired height
-                child: Image.asset(
-                  'assets/beverage.jpg', // Image for the recipe
-                  fit: BoxFit.cover, // This ensures the image fills the container
-                ),
-              ),
-              title: Padding(
-                padding: EdgeInsets.only(left: 16), // Add space between image and title
-                child: Text('Mojito'),
-              ),
-              subtitle: Padding(
-                padding: EdgeInsets.only(left: 16), // Space between the title and ingredients
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Ingredients: Rum, Lime, Mint, Sugar, Soda Water'),
-                    SizedBox(height: 8),
-                    Text('Cooking Instructions: Muddle mint and lime, then add rum, sugar, and soda water.'),
-                    SizedBox(height: 8),
-                    Text('Prep time: 10 minutes'),
-                    SizedBox(height: 8),
-                    Text('Cook time: None'),
+                    Text('Cook time: 5 minutes'),
                     SizedBox(height: 8),
                     Text('Stars: ⭐⭐⭐⭐⭐'),
                   ],

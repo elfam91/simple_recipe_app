@@ -18,14 +18,14 @@ class _HomePageState extends State<HomePage> {
   TextEditingController _searchController = TextEditingController();
   String _searchQuery = '';
 
-  // Updated recipes map: Pancakes now belongs to the 'Breakfast' category
+  // Recipes map: now just the images and names, without ratings or times
   final Map<String, String> _recipes = {
     'Ice Cream': 'assets/ice_cream.jpg',
-    'Pancakes': 'assets/breakfast.jpg',  // Pancakes is now part of Breakfast
+    'Pancakes': 'assets/breakfast.jpg',
     'Taco': 'assets/taco.jpg',
     'Coffee': 'assets/coffee.jpg',
     'Spaghetti': 'assets/spaghetti.jpg',
-    'Salad': 'assets/salad.jpg',  // Salad is now part of Lunch
+    'Salad': 'assets/salad.jpg',
   };
 
   @override
@@ -247,11 +247,11 @@ class _HomePageState extends State<HomePage> {
                   return GestureDetector(
                     onTap: () {
                       // Navigate to the corresponding category page
-                      if (recipe == 'Ice Cream' || recipe == 'Pancakes') {
+                      if (recipe == 'Pancakes') {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => BreakfastRecipePage(),  // Changed to Breakfast
+                            builder: (context) => BreakfastRecipePage(),
                           ),
                         );
                       } else if (recipe == 'Taco' || recipe == 'Spaghetti') {
@@ -275,13 +275,18 @@ class _HomePageState extends State<HomePage> {
                             builder: (context) => LunchRecipePage(),
                           ),
                         );
+                      } else if (recipe == 'Ice Cream') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DessertRecipePage(),
+                          ),
+                        );
                       }
                     },
                     child: RecipeCard(
                       imgSrc: _recipes[recipe]!,
                       title: recipe,
-                      prepTime: '15 M',
-                      cookTime: '30 M',
                     ),
                   );
                 },
@@ -304,5 +309,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-
