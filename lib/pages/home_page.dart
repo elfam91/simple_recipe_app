@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:simple_recipe_app/recipes/snack_recipe_page.dart';
 import 'package:simple_recipe_app/widgets/meal_type_card.dart';
 import 'package:simple_recipe_app/widgets/recipe_card.dart';
-import 'add_recipe_page.dart'; // Import the new page
+import 'add_recipe_page.dart';
 import 'package:simple_recipe_app/recipes/dessert_recipe_page.dart';
 import 'package:simple_recipe_app/recipes/dinner_recipe_page.dart';
 import 'package:simple_recipe_app/recipes/beverage_recipe_page.dart';
 import 'package:simple_recipe_app/recipes/breakfast_recipe_page.dart';
-import 'package:simple_recipe_app/recipes/lunch_recipe_page.dart'; // Make sure this is imported
+import 'package:simple_recipe_app/recipes/lunch_recipe_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
   TextEditingController _searchController = TextEditingController();
   String _searchQuery = '';
 
-  // Recipes map: now just the images and names, without ratings or times
+  // Recipes map: now just the images and names
   final Map<String, String> _recipes = {
     'Ice Cream': 'assets/ice_cream.jpg',
     'Pancakes': 'assets/breakfast.jpg',

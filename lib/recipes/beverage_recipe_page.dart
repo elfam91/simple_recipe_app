@@ -14,10 +14,10 @@ class BeverageRecipePage extends StatelessWidget {
             // First Recipe: Caffe Latte
             ListTile(
               leading: Container(
-                width: 100, // Set the desired width
-                height: 100, // Set the desired height
+                width: 100,
+                height: 100,
                 child: Image.asset(
-                  'assets/coffee.jpg', // Image for the recipe
+                  'assets/coffee.jpg',
                   fit: BoxFit.cover, // This ensures the image fills the container
                 ),
               ),
@@ -44,13 +44,13 @@ class BeverageRecipePage extends StatelessWidget {
               ),
             ),
 
-            // Third Recipe: Iced Coffee
+            // Second Recipe: Iced Coffee
             ListTile(
               leading: Container(
-                width: 100, // Set the desired width
-                height: 100, // Set the desired height
+                width: 100,
+                height: 100,
                 child: Image.asset(
-                  'assets/coffee.jpg', // Image for the recipe
+                  'assets/coffee.jpg',
                   fit: BoxFit.cover, // This ensures the image fills the container
                 ),
               ),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:simple_recipe_app/recipes/lunch_recipe_page.dart'; // Import the category recipe pages
+import 'package:simple_recipe_app/recipes/lunch_recipe_page.dart';
 import 'package:simple_recipe_app/recipes/breakfast_recipe_page.dart';
 import 'package:simple_recipe_app/recipes//dessert_recipe_page.dart';
 import 'package:simple_recipe_app/recipes/snack_recipe_page.dart';
 import 'package:simple_recipe_app/recipes/beverage_recipe_page.dart';
 import 'package:simple_recipe_app/recipes/dinner_recipe_page.dart';
-import 'package:simple_recipe_app/widgets/meal_grid_tyle.dart'; // Your MealGridTile widget
+import 'package:simple_recipe_app/widgets/meal_grid_tyle.dart';
 
 class CategoryPage extends StatelessWidget {
   @override

@@ -14,10 +14,10 @@ class DinnerRecipePage extends StatelessWidget {
             // First Recipe: Taco
             ListTile(
               leading: Container(
-                width: 100, // Set the desired width
-                height: 100, // Set the desired height
+                width: 100,
+                height: 100,
                 child: Image.asset(
-                  'assets/taco.jpg', // Image for the recipe
+                  'assets/taco.jpg',
                   fit: BoxFit.cover, // This ensures the image fills the container
                 ),
               ),
@@ -47,10 +47,10 @@ class DinnerRecipePage extends StatelessWidget {
             // Second Recipe: Spaghetti
             ListTile(
               leading: Container(
-                width: 100, // Set the desired width
-                height: 100, // Set the desired height
+                width: 100,
+                height: 100,
                 child: Image.asset(
-                  'assets/spaghetti.jpg', // Image for the recipe
+                  'assets/spaghetti.jpg',
                   fit: BoxFit.cover, // This ensures the image fills the container
                 ),
               ),

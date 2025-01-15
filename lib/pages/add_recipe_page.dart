@@ -6,7 +6,7 @@ class AddRecipePage extends StatefulWidget {
 }
 
 class _AddRecipePageState extends State<AddRecipePage> {
-  // Text controllers for the recipe fields
+
   final _titleController = TextEditingController();
   final _ingredientsController = TextEditingController();
   final _instructionsController = TextEditingController();

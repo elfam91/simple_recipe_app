@@ -11,13 +11,13 @@ class LunchRecipePage extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: ListView(
           children: [
-            // First Recipe: Pancakes
+            // First Recipe: Chicken salad
             ListTile(
               leading: Container(
-                width: 100, // Set the desired width
-                height: 100, // Set the desired height
+                width: 100,
+                height: 100,
                 child: Image.asset(
-                  'assets/salad.jpg', // Image for the recipe
+                  'assets/salad.jpg',
                   fit: BoxFit.cover, // This ensures the image fills the container
                 ),
               ),
